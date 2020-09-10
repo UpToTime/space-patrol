@@ -1,0 +1,149 @@
+Manager:
+    id:manager
+    name:"manager"
+    Menu:
+        id:menu_scrn
+        name:"menu_scrn"
+    Game:
+        id:game_scrn
+        name:"game_scrn"
+    GameOver:
+        id:gameover_scrn
+        name:"gameover_scrn"
+        
+        
+<MenuBtn@Button>:
+    font_name:'buttons/04B_19.ttf'
+    background_normal:"buttons/lu_no_text.png"
+    background_down:"buttons/lu_less.png"
+    border:3,3,3,3
+
+
+
+<Menu>:
+    size:root.width, root.height
+    canvas:
+        Rectangle:
+            size:self.size
+            pos:self.pos
+            source:'fg.png'
+    FloatLayout:
+        MenuBtn:
+            id: strtbtn
+            font_size:"30sp"
+            text:"start"
+            size_hint:0.3, 0.08
+            y: root.top - 200
+            x: root.width - 300
+            #on_press: root.animate(strtbtn)
+            on_release: app.root.current="game_scrn"
+        MenuBtn:
+            id: prfbtn
+            font_size:"30sp"
+            text:"Profile"
+            size_hint:0.4, 0.08
+            y: root.top - 400
+            x: root.width - 300
+            on_press: root.animate(prfbtn)
+        MenuBtn:
+            id:extbtn
+            font_size:"30sp"
+            text:"Exit"
+            size_hint:0.3, 0.08
+            y: root.top - 600
+            x:root.width - 300
+            on_press: root.animate(extbtn)
+            on_release: app.stop()
+        MenuBtn:
+            font_size:"30sp"
+            text:"Settings"
+            size_hint:0.4, 0.08
+            y: root.top - 800
+            x: root.width - 300
+        
+        
+  
+        
+              
+                          
+<Game>:
+    #scored:score
+    #levels:level
+    FloatLayout:
+        size_hint: 1,1
+        canvas:
+            #Color:
+                #rgba:(0,0,0,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"bg.png"
+        Label:
+            id:score
+            text:""
+            font_size: "15sp"
+            font_name:'buttons/04B_19.ttf'
+            top: root.top - 100
+            x: root.center_x /2
+            size_hint: 0.2, 0.1
+        Label:
+            id:level
+            text:""
+            font_size: "15sp"
+            font_name:'buttons/Pp.ttf'
+            top: root.top - 100
+            right : root.width - 170
+            size_hint: 0.2, 0.1
+            
+        MenuBtn:
+            id:quit
+            font_size:"16sp"
+            text:"Quit"
+            top: root.top - 200
+            x: root.width - 130
+            size_hint: 0.14, 0.09
+            on_release: gameplay.gameOver()#app.root.current="gameover_scrn"
+        GamePlay:
+            id:gameplay
+            center: root.center
+            width: root.width 
+            height: root.height
+            #x: root.width / 2
+            #y: root.height / 2      
+        
+
+        
+<GameOver>:
+    FloatLayout:
+        size_hint: 1,1
+        canvas:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"images/gameover.png"
+        Label:
+            id:final_score
+            text:""
+            font_size: "15sp"
+            font_name:'buttons/04B_19.ttf'
+            y: root.center_y 
+            x: root.center_x 
+            size_hint: 0.5, 0.5
+        MenuBtn:
+            id:restart
+            font_size:"16sp"
+            text:"Restart"
+            y: 100
+            x: root.width / 2 - 100
+            size_hint: 0.2 , 0.1
+            on_release: app.root.current="menu_scrn"
+        MenuBtn:
+            id:home_btn
+            font_size:"16sp"
+            text:"Exit"
+            y: 100
+            x: root.width / 2 + 100
+            size_hint: 0.15, 0.1
+            on_release: app.stop() #app.root.current="menu_scrn"
+                    
+                                
