@@ -2,4 +2,6 @@
 Mobile game app 
 -
 ## how its played
-![watch gif](./showcase/space_patrol.mp4)
+<video width="320" height="240" controls>
+  <source src="showcase/space_patrol.mp4" type="video/mp4">
+</video>
