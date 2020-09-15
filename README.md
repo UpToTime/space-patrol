@@ -3,4 +3,4 @@ Mobile game app
 -
 ## how its played
 
-![space patrol Demo](showcase/space_patrol.mp4)
+![space patrol Demo](showcase/sp_demo.gif)
